@@ -1,0 +1,1 @@
+@extends('layouts.app') @section('content')<section class="page-head"><p class="eyebrow">KONTAK</p><h1>Ada yang ingin ditanyakan?</h1><p>Tim pustaka siap membantu kebutuhan koleksi dan akun Anda.</p></section><section class="section prose"><p><b>Email</b><br>halo@pustakadigital.test</p><p><b>Jam layanan</b><br>Senin-Jumat, 08.00-16.00</p></section>@endsection

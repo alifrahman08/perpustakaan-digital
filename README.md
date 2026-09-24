@@ -7,6 +7,27 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
+## Pustaka Digital
+
+Aplikasi perpustakaan digital berbasis Laravel 11, MySQL, Blade, dan Vite.
+
+### Instalasi Laragon
+
+1. Gunakan PHP 8.2+ di Laragon, lalu jalankan `composer install`.
+2. Salin `.env.example` menjadi `.env`; buat database `perpustakaan_digital` di HeidiSQL/phpMyAdmin.
+3. Jalankan `php artisan key:generate` lalu `php artisan migrate --seed`.
+4. Jalankan `npm install && npm run dev` untuk asset frontend.
+5. Start All di Laragon, buka `http://perpustakaandigital.test`, atau jalankan `php artisan serve`.
+
+### Akun Demo
+
+- Admin: `admin@perpustakaan.com` / `admin123`
+- Anggota: `anggota1@example.com` / `anggota123`
+
+### Modul
+
+Katalog, pencarian, filter, detail buku, ulasan, peminjaman dengan pengurangan stok, dashboard anggota, serta panel admin di `/admin` untuk statistik, CRUD buku/kategori, dan pengembalian.
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:

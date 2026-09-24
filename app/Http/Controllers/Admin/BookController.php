@@ -1,0 +1,7 @@
+<?php
+namespace App\Http\Controllers\Admin;
+use App\Http\Controllers\Controller;
+use App\Models\Book;
+use App\Models\Category;
+use Illuminate\Http\Request;
+class BookController extends Controller { private function data(Request $r) { return $r->validate(['kategori_id'=>'required|exists:categories,id','judul'=>'required|string|max:255','penulis'=>'required|string|max:255','penerbit'=>'nullable|string|max:255','tahun_terbit'=>'nullable|integer|min:1000|max:'.date('Y'),'isbn'=>'nullable|string|max:30','deskripsi'=>'nullable|string','cover_image'=>'nullable|url','jumlah_halaman'=>'nullable|integer|min:1','stok'=>'required|integer|min:0']); } public function index(){ return view('admin.books.index',['books'=>Book::with('category')->latest()->paginate(15)]); } public function create(){ return view('admin.books.form',['book'=>new Book,'categories'=>Category::all()]); } public function store(Request $r){ Book::create($this->data($r)); return redirect()->route('admin.books.index')->with('success','Buku ditambahkan.'); } public function edit(Book $book){ return view('admin.books.form',['book'=>$book,'categories'=>Category::all()]); } public function update(Request $r,Book $book){ $book->update($this->data($r)); return redirect()->route('admin.books.index')->with('success','Buku diperbarui.'); } public function destroy(Book $book){ $book->delete(); return back()->with('success','Buku dihapus.'); } }
